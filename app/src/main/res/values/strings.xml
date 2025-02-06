@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AndroidDevelopmentProject</string>
+
+    <string name="hello_title">Добро пожаловать!</string>
+    <string name="registration_title">Регистрация</string>
+    <string name="login_title">Вход</string>
+
+    <string name="register_by_email">По email</string>
+    <string name="register_by_number">По номеру</string>
+
+    <string name="username_input">Имя пользователя</string>
+    <string name="email_input">Email</string>
+    <string name="phone_input">Телефон</string>
+    <string name="password_input">Пароль</string>
+    <string name="password_confirm_input">Ещё раз</string>
+
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="login_button">Войти</string>
+
+    <string name="remember_me">Запомнить меня</string>
+
+    <string name="invalid_email">Неверный email</string>
+    <string name="invalid_phone">Неверный телефон</string>
+    <string name="invalid_password_length">Неверный пароль</string>
+    <string name="passwords_do_not_match">Пароли не совпадают</string>
+</resources>
