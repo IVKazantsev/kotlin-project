@@ -19,6 +19,8 @@
 
     <string name="remember_me">Запомнить меня</string>
 
+    <string name="invalid_login_data">Неверные данные для входа</string>
+
     <string name="invalid_email">Неверный email</string>
     <string name="invalid_phone">Неверный телефон</string>
     <string name="invalid_password_length">Неверный пароль</string>

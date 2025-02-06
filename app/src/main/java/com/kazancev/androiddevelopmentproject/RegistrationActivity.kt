@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -135,8 +134,10 @@ class RegistrationActivity : AppCompatActivity()
     {
         val sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
+
         editor.putString("username", usernameInput?.text.toString())
         editor.putString("password", passwordInput?.text.toString())
+
         editor.apply()
     }
 
@@ -144,7 +145,8 @@ class RegistrationActivity : AppCompatActivity()
     {
         val intent = Intent(this, ContentActivity::class.java)
         startActivity(intent)
-        finish() // Закрываем RegistrationActivity, чтобы не возвращаться назад
+
+        finish()
     }
 
     private fun showInvalidDataToast(message: String?)
