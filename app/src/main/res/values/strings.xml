@@ -25,4 +25,6 @@
     <string name="invalid_phone">Неверный телефон</string>
     <string name="invalid_password_length">Неверный пароль</string>
     <string name="passwords_do_not_match">Пароли не совпадают</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
