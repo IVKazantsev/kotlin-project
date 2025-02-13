@@ -29,10 +29,7 @@
     <string name="hello_blank_2_fragment">Hello blank 2 fragment</string>
 
     <string name="model">1. Huawei Mate 50 Pro</string>
-    <string name="launchPricePrefix">Launch price:</string>
     <string name="price">Launch price: $1299</string>
-    <string name="launchDatePrefix">Launch date:</string>
     <string name="launchDate">Launch date: Sep, 2022</string>
-    <string name="cameraScorePrefix">Camera score:</string>
     <string name="cameraScore">Camera score: 149</string>
 </resources>

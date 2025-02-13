@@ -8,11 +8,13 @@ import kotlinx.android.synthetic.main.recylcerview_item.view.*
 class PhonesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 {
     @SuppressLint("SetTextI18n")
-    fun bind(mPhones: PhoneModel)
+    fun bind(mPhones: PhoneModel, position: Int)
     {
-        itemView.model.text = mPhones.name
-        itemView.launchPrice.text = "${R.string.launchPricePrefix} ${mPhones.price}"
-        itemView.launchDate.text = "${R.string.launchDatePrefix} ${mPhones.date}"
-        itemView.cameraScope.text = "${R.string.cameraScorePrefix} ${mPhones.score}"
+        val place = position + 1;
+
+        itemView.model.text = "${place}. ${mPhones.name}"
+        itemView.launchPrice.text = "Launch price: ${mPhones.price}"
+        itemView.launchDate.text = "Launch date: ${mPhones.date}"
+        itemView.cameraScope.text = "Camera score: ${mPhones.score}"
     }
 }

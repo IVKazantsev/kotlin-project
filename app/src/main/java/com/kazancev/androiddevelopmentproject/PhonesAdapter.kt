@@ -1,5 +1,6 @@
 package com.kazancev.androiddevelopmentproject
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,10 +9,21 @@ class PhonesAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
 {
     private var mPhonesList: ArrayList<PhoneModel> = ArrayList()
 
-    fun setupPhones(phonesList: Array<PhoneModel>)
+    @SuppressLint("NotifyDataSetChanged")
+    fun setupPhones(phonesList: Array<PhoneModel>, scoreFrom: Int, scoreTo: Int)
     {
         mPhonesList.clear()
-        mPhonesList.addAll(phonesList)
+
+        for (phone in phonesList)
+        {
+            if(phone.score.toInt() < scoreFrom || phone.score.toInt() > scoreTo)
+            {
+                continue
+            }
+
+            mPhonesList.add(phone)
+        }
+
         notifyDataSetChanged()
     }
 
@@ -19,7 +31,7 @@ class PhonesAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
     {
         if (holder is PhonesViewHolder)
         {
-            holder.bind(mPhones = mPhonesList[position])
+            holder.bind(mPhones = mPhonesList[position], position)
         }
     }
 
