@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
+import kotlinx.android.synthetic.main.activity_content.*
 
 class ContentActivity : AppCompatActivity()
 {
@@ -17,7 +18,6 @@ class ContentActivity : AppCompatActivity()
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
-        val bottom_nav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_nav)
         bottom_nav.setupWithNavController(navController)
     }
 }

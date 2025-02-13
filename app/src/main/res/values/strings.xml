@@ -25,6 +25,14 @@
     <string name="invalid_phone">Неверный телефон</string>
     <string name="invalid_password_length">Неверный пароль</string>
     <string name="passwords_do_not_match">Пароли не совпадают</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hello_blank_2_fragment">Hello blank 2 fragment</string>
+
+    <string name="model">1. Huawei Mate 50 Pro</string>
+    <string name="launchPricePrefix">Launch price:</string>
+    <string name="price">Launch price: $1299</string>
+    <string name="launchDatePrefix">Launch date:</string>
+    <string name="launchDate">Launch date: Sep, 2022</string>
+    <string name="cameraScorePrefix">Camera score:</string>
+    <string name="cameraScore">Camera score: 149</string>
 </resources>
