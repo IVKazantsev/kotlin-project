@@ -2,6 +2,7 @@ package com.kazancev.androiddevelopmentproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
@@ -19,5 +20,19 @@ class ContentActivity : AppCompatActivity()
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         bottom_nav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id)
+            {
+                R.id.firstFragment, R.id.secondFragment ->
+                {
+                    bottom_nav.visibility = View.VISIBLE
+                }
+                else ->
+                {
+                    bottom_nav.visibility = View.GONE
+                }
+            }
+        }
     }
 }
