@@ -3,6 +3,7 @@ package com.kazancev.androiddevelopmentproject
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
 
 class RegistrationFragment : Fragment()
 {
@@ -95,6 +95,7 @@ class RegistrationFragment : Fragment()
         navigateToContent()
     }
 
+    @Throws(Exception::class)
     private fun validate()
     {
         val externalField = externalFieldInput?.text.toString()
@@ -106,6 +107,7 @@ class RegistrationFragment : Fragment()
         validatePassword(passwordInput?.text.toString(), confirmPasswordInput?.text.toString())
     }
 
+    @Throws(Exception::class)
     private fun validateEmail(email: String)
     {
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
@@ -114,6 +116,7 @@ class RegistrationFragment : Fragment()
         }
     }
 
+    @Throws(Exception::class)
     private fun validatePhone(phone: String)
     {
         if (!Patterns.PHONE.matcher(phone).matches())
@@ -122,6 +125,7 @@ class RegistrationFragment : Fragment()
         }
     }
 
+    @Throws(Exception::class)
     private fun validatePassword(password: String, confirmPassword: String)
     {
         if (password.length < 8)
@@ -136,18 +140,13 @@ class RegistrationFragment : Fragment()
 
     private fun saveUserData()
     {
-        val firebaseAuth = FirebaseAuth.getInstance()
+        val sharedPreferences = requireActivity().getSharedPreferences("settings", 0)
+        val editor = sharedPreferences.edit()
 
-        firebaseAuth.createUserWithEmailAndPassword(
-            externalFieldInput?.text.toString(),
-            passwordInput?.text.toString(),
-        ).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                findNavController().navigate(R.id.firstFragment)
-            }
-        }.addOnFailureListener { exception ->
-            Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_LONG).show()
-        }
+        editor.putString("username", usernameInput?.text.toString())
+        editor.putString("password", passwordInput?.text.toString())
+
+        editor.apply()
     }
 
     private fun navigateToContent()
@@ -157,6 +156,6 @@ class RegistrationFragment : Fragment()
 
     private fun showInvalidDataToast(message: String?)
     {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 }
